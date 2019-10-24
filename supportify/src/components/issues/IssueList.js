@@ -11,11 +11,10 @@ function IssueList(props) {
 
     <div>
         <>
-        <p>{props.userData.school}</p>
+        <p>{props.school_name}</p>
 
-        { !props.userInfo.isBoardMember && <button 
-            onClick={ () =>  props.Set_IssueType( 'createnew') }>Add Issue Ticket
-        </button> }
+        { !props.isBoardMember && 
+        <button onClick={ () =>  props.Set_IssueType('createnew') }>Add Issue Ticket</button> }
         </>
     </div>
 
@@ -24,7 +23,7 @@ function IssueList(props) {
         <li>Title</li>
         <li>Status</li>
         <li>View</li>
-        { !props.userInfo.isBoardMember && <button>Delete</button>}
+        { !props.isBoardMember && <button>Delete</button>}
     </ul>
 
     <div> 
@@ -44,6 +43,7 @@ function IssueList(props) {
     </>
 );
 }
+
 const mapStateToProps = state => {
 
     return {
@@ -51,7 +51,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(
-    mapStateToProps,
-    {  }
-)(IssueList);
+export default connect(mapStateToProps,{ })(IssueList);

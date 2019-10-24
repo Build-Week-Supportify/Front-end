@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { connect } from 'react-redux';
-import DashboardMenu from '../dashboard-menu/dashboard-menu.component';
+import DashboardMenu from '../dashboard/DashboardMenu';
 import Issue from '../single-issue/single-issue.component';
 import IssueList from '../IssueList/IssueList';
 import { userComments } from '../../store/actions';
@@ -33,7 +33,7 @@ function DashboardFunctions(props) {
         }
     }, [newIssues]);
 
-// fetch data from Redux Store
+
 useEffect(() => {
     
     userComments();

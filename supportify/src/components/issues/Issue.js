@@ -2,55 +2,42 @@ import React   from 'react';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { connect } from 'react-redux';
-import { updateForm } from "../../store/actions";
-import { formatDate } from '../../utils/ModalConfirm';
+import { updateForm } from '../../store/actions';
+// import { formatDate } from '../../utils/ModalConfirm';
 import IssueForm from './IssueForm';
 
-function SingleIssue( props ) {
+function Issue(props) {
 
   let issueType = props.issueType;
   let showForm = ( issueType === 'clear')? false : true;
   
-  const SIT = props.Set_IssueType; 
+  const setType = props.Set_IssueType; 
   const updateIssues = props.updateIssues;
-  let showSingle = (props.winWidth >= 1200 || props.issueType !== 'clear')? { display: 'flex' } : { display : 'none'} ;
 
-  let { 
-    first_name ,
-    last_name,
-    school,
-    isBoardMember,
-  } = props.userData;
+  let { first_name , last_name, school_name, isBoardMember,} = props;
 
-  let {
-    id,
-    status,
-    issue_title,
-    issue_description,
-    date
-  } = props.issue;
+  let {id, status, issue_title, issue_description, date} = props.issue;
 
-  let userName = ( first_name && last_name)? `${first_name.replace(/^[a-z]/, match=> match.toUpperCase())} ${last_name.replace(/^[a-z]/, match=> match.toUpperCase())}`: '';
+  let username = ( first_name && last_name)? `${first_name.replace(/^[a-z]/, match=> match.toUpperCase())} ${last_name.replace(/^[a-z]/, match=> match.toUpperCase())}`: '';
   
-  let InitNewIssue ={
-      id: Math.floor(Math.random()*10000),
+  let newIssue ={
+      id: '',
       status: 'Needs Attention',
-      createdBy: userName,
-      date: formatDate(), 
+      createdBy: username,
       description:  '',
       title:  '',
   } 
 
-  let InitEdit = {
+  let issueEdit = {
         id: id,
         status : status,
-        createdBy: userName,
+        createdBy: username,
         date: date,
         description:  issue_description,
         title:  issue_title
   }
 
-  let initObject = ( issueType === 'edit' ) ? InitEdit : InitNewIssue;
+  let initObject = ( issueType === 'edit' ) ? issueEdit : newIssue;
 
   return (
     <div>
@@ -75,8 +62,8 @@ function SingleIssue( props ) {
           }}
 
           validationSchema={yup.object().shape({
-            title: yup.string().required("Please provide a title"),
-            description: yup.string().required("Please provide decription")
+            title: yup.string().required('Title Missing'),
+            description: yup.string().required('Description Missing')
           })}
 
           render={props => (
@@ -84,7 +71,7 @@ function SingleIssue( props ) {
               {...props}
               isBM={isBoardMember}
               issueType={issueType}
-              Set_IssueType={SIT}
+              Set_IssueType={setType}
               updateIssues={updateIssues}
             />
           )}
@@ -100,7 +87,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { updateForm }
-)(SingleIssue);
+export default connect(mapStateToProps, { updateForm })(Issue);

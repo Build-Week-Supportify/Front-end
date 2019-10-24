@@ -12,15 +12,15 @@ export const registerUser = (info, props) => dispatch => {
 
     dispatch({ type: REGISTER_START });
 
-    axiosWithAuth()
-
+    // axiosWithAuth()
+        axios
         .post('https://bw-supportify.herokuapp.com/auth/register', info)
         // console.log(info)
 
         .then(response => {
             console.log('register', response);
             dispatch({ type: REGISTER_SUCCESS, payload:response.data });
-            localStorage.setItem(response.data.token);
+            localStorage.setItem(response.data);
             // props.history.push('/login');
             window.location = '/login';
         })

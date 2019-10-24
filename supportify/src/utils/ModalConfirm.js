@@ -1,28 +1,15 @@
-import "antd/dist/antd.css";
-import { Modal} from "antd";
-
-export function formatDate() {
-    var d = new Date(),
-    month = "" + (d.getMonth() + 1),
-    day = "" + d.getDate(),
-    year = d.getFullYear();
-
-    if (month.length < 2) month = "0" + month;
-    if (day.length < 2) day = "0" + day;
-
-    return [year, month, day].join("-");
-}
+import 'antd/dist/antd.css';
+import { Modal} from 'antd';
 
 const { confirm } = Modal;
 
-export function showDeleteConfirm(  id, props, title, cb ) {
+export function deleteConfirm(  id, props, title, cb ) {
     confirm({
     title: `Are you sure you want to delete ${ title }?`,
-    okText: "Yes",
-    okType: "danger",
-    cancelText: "No",
+    okText: 'Yes',
+    okType: 'danger',
+    cancelText: 'No',
     onOk() {
-
         props.deleteIssue(id, props);
         cb('clear');
     },

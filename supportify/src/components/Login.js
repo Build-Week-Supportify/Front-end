@@ -10,15 +10,15 @@ class Login extends Component {
         password: '',
     };
 
-    changeHandler = e => {
-        e.preventDefault();
+    changeHandler = event => {
+        event.preventDefault();
         this.setState({
-            [e.target.id]: e.target.value,
+            [event.target.id]: event.target.value,
         });
     };
 
-    submitHandler = e => {
-        e.preventDefault();
+    submitHandler = event => {
+        event.preventDefault();
         this.props.loginUser(this.state);
         this.props.history.push('/');
     };
@@ -29,33 +29,32 @@ class Login extends Component {
         } else {
             return (
                 <form onSubmit={this.submitHandler}>
-                    <div className="form-header">Login</div>
+                    <div>Login</div>
 
-                    <div className="form-body">
+                    <div>
                         
                         <input
-                            name='username'
-                            type="text"
-                            id="username"
-                            placeholder ='username'
-                            onChange={this.changeHandler}
+                            name = 'username'
+                            type = 'text'
+                            id = 'username'
+                            placeholder = 'username'
+                            onChange = {this.changeHandler}
                         />
-
-                        
+                                                
                         <input
-                            name='password'
-                            type="password"
-                            id="password"
-                            placeholder='password'
+                            name = 'password'
+                            type = 'password'
+                            id = 'password'
+                            placeholder = 'password'
                             onChange={this.changeHandler}
                         />
 
                         <button>Login</button>
 
                         <div>
-                            <p>Need to register? </p>
-                            <Link to="./register">
-                                <button type="submit">Register here!</button>
+                            <p>Create An Account </p>
+                            <Link to= './register'>
+                                <button type = 'submit'>Register here!</button>
                             </Link>
         </div>
                     </div>
@@ -73,7 +72,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(
-    mapStateToProps,
-    { loginUser }
-)(Login);
+export default connect(mapStateToProps, { loginUser })(Login);

@@ -13,14 +13,12 @@ import {
     EDIT_FAILURE,
     DELETE_ISSUE,
     COMMENTS_START,
-    COMMENTS_SUCCESS,
-    // COMMENTS_FAILURE, 
+    COMMENTS_SUCCESS, 
     SAVE_COMMENTS_START,
     SAVE_COMMENTS_SUCCESS,
-    // SAVE_COMMENTS_FAILURE,
-    // DELETE_COMMENTS_START,
-    // DELETE_COMMENTS_SUCCESS,
-    // DELETE_COMMENTS_FAILURE
+    SCHOOLS_START,
+    ADD_SCHOOLS_START,
+    ADD_SCHOOLS_SUCCESS,
 } from '../../store/actions';
 
     export const initialState = {
@@ -53,8 +51,6 @@ import {
         return {
             ...state,
             registerLoading:true,
-            // user: action.payload,
-            // userId: action.payload.id,
             errorRegister: false
         };
 
@@ -93,8 +89,6 @@ import {
 
             isBoardMember: action.payload.isBoardMember,
             last_name: action.payload.last_name,
-            school: 'Country School',
-            school_id: 10
         },
         loggingIn:false,
         };
@@ -179,9 +173,24 @@ import {
         comments: [...state.comments, action.payload],
         
         };
-    default:
+
+    case ADD_SCHOOLS_START:
+        return {
+        ...state,
+        fetchingIssues: true
+        };
+
+    case ADD_SCHOOLS_SUCCESS:
+        return {
+        ...state,
+        comments: [...state.schools, action.payload],
+        fetchingIssues: false
+        };
+
+        default:
         return state;
     }
+
 }
 
 export default reducer;

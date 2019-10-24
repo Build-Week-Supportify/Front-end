@@ -2,91 +2,71 @@ import React from 'react';
 import {  Form, Field, ErrorMessage } from 'formik';
 import { updateForm, saveIssue, deleteIssue, saveComment } from '../../store/actions';
 import { connect } from 'react-redux';
-import { showDeleteConfirm} from '../../utils/ModalConfirm';
-import { differenceInCalendarDays } from 'date-fns';
+import { deleteConfirm} from '../../utils/ModalConfirm';
+import { differenceInCalendarDays } from 'date-fns'
 
 function Stat( { label, data }){
+
   return(
-    <div className={ styles.statRow }>
+    <div>
       <p>{ label }</p>
       <p>{ data }</p>
     </div>
   )
 }
 
-function SingleIssueForm( props ) {
+function SingleIssueForm(props) {
 
-  let {
-    values,
-    handleChange,
-  } = props;
+  let {values, handleChange,} = props;
 
-  let {
-    id,
-    createdBy,
-    title ,
-    bmComment,
-    date ,
-    description ,
-    status,
-  } = props.values;
+  let {id, createdBy, title , usersComment, date, description, status,} = props.values;
 
-  let isBM = props.userInfo.isBoardMember; 
+  let boardMember = props.isBoardMember; 
 
   return (
-    <form>
-          {isBM && (
+  
+    <Form>
+          {boardMember && (
             <>
-              <label htmlFor="status">Status:</label>
-
+              <label htmlFor = 'status'>Status:</label>
+              
               <Field
-                name="status"
-                render={props => (
+                name = 'status'
+                render = {props => (
                   <BMSelectStatus {...props} placeholder={status} />
                 )}
               />
-            </>
+              </>
           )}
-          </form>
-          )
 
-          <div>
-          <>
-          {!isBM && <Stat label="Status: " data={status}/>}
+          {!boardMember && <Stat label="Status: " data={status}/>}
           <Stat label="Created By: " data={createdBy} />
           <Stat label="Date Created:" data={date} />
 
           <Stat label="Days Passed:" data={differenceInCalendarDays(new Date(), new Date(date))}/>
-          </>
 
-          {isBM && <Stat label="Title: " data={title} />}
+          {boardMember && <Stat label="Title: " data={title} />}
 
-          {isBM && <Stat label="Description: " data={description} />}
+          {boardMember && <Stat label="Description: " data={description} />}
 
-          {isBM && (
-            <div className={styles.bmCommentDiv}>
-              <label
-                htmlFor="bmComment"
-              >
-                Board Comment:{" "}
-              </label>
+          {boardMember && (
+            <div>
+              <label htmlFor="bmComment"> Board Comment:{" "}</label>
+
               <input
                 name="bmComment"
                 placeholder={"Board Member Comment"}
                 onChange={handleChange}
                 value={values.bmComment}
               />
+
               <ErrorMessage component="p" name="bmComment" />
             </div>
           )}
 
-          {!isBM && (
-            <div className={styles.bmCommentDiv}>
-              <label
-                htmlFor="title"
-              >
-                Title:{" "}
-              </label>
+          {!boardMember && (
+            <div>
+              <label htmlFor="title">Title:{" "}</label>
 
               <input
                 placeholder={"issue title"}
@@ -100,42 +80,32 @@ function SingleIssueForm( props ) {
             </div>
           )}
 
-          {!isBM && (
-            <div className={styles.bmCommentDiv}>
-              <label
-                htmlFor="description"
-              >
-                Description:{" "}
-              </label>
+          {!boardMember && (
+            <div>
+              <label htmlFor="description"> Description:{" "}</label>
+
               <input
                 name="description"
                 placeholder={"issue description"}
                 onChange={handleChange}
                 value={values.description}
               />
+
               <ErrorMessage component="p" name="description" />
             </div>
           )}
 
       <div>
-        <>
-        {!isBM && props.issueType === 'edit' && (
-          <button 
-            onClick={ () => {
-                showDeleteConfirm( id, props, title, props.Set_IssueType )
-            }}
-          >
-            Delete
-          </button>
+        {!boardMember && props.issueType === 'edit' && (
+          <button onClick={ () => {deleteConfirm( id, props, title, props.Set_IssueType)
+            }}>Delete</button>
         )}
 
         <button type="button" onClick={() => props.Set_IssueType("clear")}>
-          Close
-        </button>
+          Close</button>
 
-        {!isBM &&props.issueType === "edit" && (
-          <button
-            type="submit"
+        {!boardMember &&props.issueType === "edit" && (
+          <button type="submit"
             onClick={() => {
               const issueInfo = {
                 id: id,
@@ -148,25 +118,21 @@ function SingleIssueForm( props ) {
               
               props.updateForm(id, issueInfo, props);
               props.Set_IssueType('clear')
-
-            }}
-          >
-            Submit
-          </button>
+            }}>Submit</button>
         )}
 
-        {isBM && props.issueType === "edit" && (
-          <button
-            type="submit"
+        {boardMember && props.issueType === "edit" && (
+          <button type="submit"
             onClick={() => {
               const issueInfo = {
                 id: id,
                 status: status,
                 school_id: 1 
               };
+
               const comment = {
                 id: 1, 
-                comment: bmComment,
+                comment: usersComment,
                 issue_id: id,
                 board_id: props.userInfo.board_id
               };
@@ -174,15 +140,11 @@ function SingleIssueForm( props ) {
               props.updateForm(id, issueInfo, props);
               props.saveComment(comment);
               props.Set_IssueType('clear')
-            }}
-          >
-            Submit 
-          </button>
+            }}>Submit </button>
         )}
 
         {props.issueType === "createnew" && (
-          <button
-            type="submit"
+          <button type="submit"
             onClick={() => {
               const issueInfo = {
                 id: id,
@@ -196,14 +158,12 @@ function SingleIssueForm( props ) {
               props.saveIssue(issueInfo, props);
               props.Set_IssueType('clear')
             }}
-          >
-            Create
-          </button>
+          >Create</button>
         )}
       </div>
-      </>
-    </form>
+    </Form>
   );
+}
 
 
 function BMSelectStatus({  field, form, ...props} ){
@@ -212,7 +172,6 @@ function BMSelectStatus({  field, form, ...props} ){
                 <select 
               { ...field}
               {...props}
-                style={{ width: '100%', paddingLeft: '1rem' }} 
                 >
                 <option value="Needs Attention">Needs Attention</option>
                 <option value="Resolution In Progress">In Progress</option>

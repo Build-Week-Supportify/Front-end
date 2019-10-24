@@ -12,16 +12,22 @@ import Dashboard from './components/dashboard/Dashboard';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+
+    <div className = 'App'>
+      <header className = 'App-header'>
+
         <Nav/>
-        <img src={logo} className="App-logo" alt="logo" />
+        <section>
+
         <p>Here is Our App</p>
+
         <Route exact path="/home" render={() => <Redirect to="/" />} />
         <Route exact path="/" render={() => <Redirect to="/login" />} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
+        
+        </section>
       </header>
     </div>
   );

@@ -1,7 +1,7 @@
 import React from 'react';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 import { deleteIssue } from '../../store/actions'
-import { showDeleteConfirm } from "../../utils/utils";
+
 
 function ListItem(props) {
   
@@ -15,7 +15,7 @@ function ListItem(props) {
 
         <div>
           <>
-          { props.userInfo.isBoardMember && (<button 
+          { props.isBoardMember && (<button 
             id={ props.data.id }
             onClick={ ()=> props.setIssue( props.data.id ) }
             >View</button>)}
@@ -25,11 +25,11 @@ function ListItem(props) {
 
 
         <div>
-        { !props.userInfo.isBoardMember && (
+        { !props.isBoardMember && (
           <button 
           id={props.data.id}
           onClick={() => {
-            showDeleteConfirm( props.data.id, props, props.data.issue_title , props.Set_IssueType )
+            deleteIssue( props.data.id, props, props.data.issue_title , props.Set_IssueType )
           }}
             >Delete</button>)}
           </div>
@@ -41,9 +41,9 @@ function ListItem(props) {
           </div> 
 
           <div>
-            { !props.userData.isBoardMember && (
+            { !props.isBoardMember && (
             <button  id={ props.data.id } onClick={() => {
-            showDeleteConfirm( props.data.id, props, props.data.issue_title , props.Set_IssueType )
+            deleteIssue( props.data.id, props, props.data.issue_title , props.Set_IssueType )
               }}
               />)}
               </div>      
