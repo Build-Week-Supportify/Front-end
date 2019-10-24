@@ -7,8 +7,7 @@ export default function Payment() {
             <CardReactFormContainer
 
                 
-                container="card-wrapper" // required
-
+                container="card-wrapper" 
                 formInputsNames={
                 {
                     number: 'CCnumber', 
@@ -20,21 +19,21 @@ export default function Payment() {
 
                 initialValues= {
                 {
-                    number: '4242424242424242', // optional — default •••• •••• •••• ••••
-                    cvc: '123', // optional — default •••
-                    expiry: '16/12', // optional — default ••/••
-                    name: 'Random Name' // optional — default FULL NAME
+                    number: '4242424242424242', 
+                    cvc: '123', 
+                    expiry: '16/12', 
+                    name: 'Random Name' 
                 }
                 }
 
                 classes={
                 {
-                    valid: 'valid-input', // optional — default 'jp-card-valid'
-                    invalid: 'invalid-input' // optional — default 'jp-card-invalid'
+                    valid: 'valid-input', 
+                    invalid: 'invalid-input' 
                 }
                 }
 
-                formatting={true} // optional - default true
+                formatting={true} 
                 >
                 <div id="card-wrapper"></div>
 

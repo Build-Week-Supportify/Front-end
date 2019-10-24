@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavStyles } from "./NavStyle";
+
 
 export default function Header({ }) {
     const HDiv = styled.div`
