@@ -1,28 +1,6 @@
 import React from 'react';
 
 
-export default function Header({ }) {
-    const HDiv = styled.div`
-      text-decoration: none;
-    `;
-    const StyledNavLink = styled(NavLink)`
-      text-decoration: none;
-      color: black;
-      :visited {
-        color: black;
-      }
-      :hover {
-        background-color: grey;
-      }
-    `;
-    const StyledLink = styled(Link)`
-      text-decoration: none;
-      color: black;
-      :visited {
-        color: black;
-      }
-    `;
-
 class Nav extends React.Component {
     render() {
         return (

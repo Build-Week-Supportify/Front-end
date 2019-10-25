@@ -1,5 +1,5 @@
 import React from 'react'
-import CardReactFormContainer from 'card-react';
+ import CardReactFormContainer from 'card-react';
 
 export default function Payment() {
     return (
@@ -19,9 +19,9 @@ export default function Payment() {
 
                 initialValues= {
                 {
-                    number: '4242424242424242', 
+                    number: '555555555555555', 
                     cvc: '123', 
-                    expiry: '16/12', 
+                    expiry: '10/24', 
                     name: 'Random Name' 
                 }
                 }
@@ -50,3 +50,4 @@ export default function Payment() {
         </div>
     )
 }
+export default Payment;
