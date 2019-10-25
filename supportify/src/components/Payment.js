@@ -6,9 +6,8 @@ export default function Payment() {
         <div>
             <CardReactFormContainer
 
-                
-                container="card-wrapper" 
-                formInputsNames={
+                container = 'card-wrapper' 
+                formInputsNames = {
                 {
                     number: 'CCnumber', 
                     expiry: 'CCexpiry',
@@ -17,7 +16,7 @@ export default function Payment() {
                 }
                 }
 
-                initialValues= {
+                initialValues = {
                 {
                     number: '4242424242424242', 
                     cvc: '123', 
@@ -26,23 +25,23 @@ export default function Payment() {
                 }
                 }
 
-                classes={
+                classes = {
                 {
                     valid: 'valid-input', 
                     invalid: 'invalid-input' 
                 }
                 }
 
-                formatting={true} 
+                formatting = {true} 
                 >
-                <div id="card-wrapper"></div>
+                <div id = 'card-wrapper'></div>
 
                 <form>
-                <input placeholder="Full name" type="text" name="CCname" />
-                <input placeholder="Card number" type="text" name="CCnumber" />
-                <input placeholder="MM/YY" type="text" name="CCexpiry" />
-                <input placeholder="CVC" type="text" name="CCcvc" />
-                <button className='waves-effect waves-light btn'>Submit</button>
+                <input placeholder = 'Full name' type = 'text' name = 'CCname' />
+                <input placeholder = 'Card number' type = 'text' name = 'CCnumber' />
+                <input placeholder = 'MM/YY' type = 'text name' name = 'CCexpiry' />
+                <input placeholder = 'CVC type' type = 'text name' name = 'CCcvc' />
+                <button className = 'waves-effect waves-light btn'>Submit</button>
                 </form>
 
                 </CardReactFormContainer>

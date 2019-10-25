@@ -19,12 +19,12 @@ function DashboardFunctions(props) {
 
 
     useEffect(() => {
-        if (localStorage.getItem("token")) {
+        if (localStorage.getItem('token')) {
 
         axios
-        .get("https://bw-supportify.herokuapp.com/issues/")
+        .get('https://bw-supportify.herokuapp.com/issues/')
         .then(res => {
-            console.log("issue list",res.data);
+            console.log('issue list',res.data);
             setIssuesList(res.data);
         })
         .catch(err => {

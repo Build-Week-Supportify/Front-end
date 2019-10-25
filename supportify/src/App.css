@@ -92,3 +92,12 @@ label{
 .issuebtn{
   color: black;
 }
+
+.addschbtn{
+  color: black;
+  margin: 25px 0;
+}
+
+.selectstatus{
+  border: 2px solid white;
+}

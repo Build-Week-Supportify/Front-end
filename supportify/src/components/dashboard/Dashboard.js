@@ -91,30 +91,3 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, { userComments })(Dashboard);
-
-
-// import React, { Component } from 'react';
-// import { Route } from 'react-router-dom';
-// import DashboardMenu from '../dashboard/DashboardMenu';
-// import IssueList from './../issues/IssueList';
-// // import SchoolList from '../SchoolList';
-
-
-
-// class Dashboard extends Component {
-//     render() {
-//         return (
-//             <div>
-//                 <div>
-//                     <DashboardMenu />
-//                 </div>
-//                 <div >
-//                     {/* <Route path='/dashboard/schools' component={SchoolList} /> */}
-//                     <Route path='/dashboard/issues/list' component={IssueList} /> 
-//                 </div>
-//             </div>
-//         );
-//     }
-// }
-
-// export default Dashboard;

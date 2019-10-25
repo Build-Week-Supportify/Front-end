@@ -39,41 +39,41 @@ function SingleIssueForm(props) {
               </>
           )}
 
-          {!boardMember && <Stat label="Status: " data={status}/>}
-          <Stat label="Created By: " data={createdBy} />
-          <Stat label="Date Created:" data={date} />
+          {!boardMember && <Stat label = 'Status: ' data = {status}/>}
+          <Stat label = 'Created By: ' data = {createdBy} />
+          <Stat label = 'Date Created: ' data = {date} />
 
-          <Stat label="Days Passed:" data={differenceInCalendarDays(new Date(), new Date(date))}/>
+          <Stat label = 'Days Passed:' data = {differenceInCalendarDays(new Date(), new Date(date))}/>
 
-          {boardMember && <Stat label="Title: " data={title} />}
+          {boardMember && <Stat label = 'Title: '  data = {title} />}
 
-          {boardMember && <Stat label="Description: " data={description} />}
+          {boardMember && <Stat label = 'Description: ' data = {description} />}
 
           {boardMember && (
             <div>
-              <label htmlFor="bmComment"> Board Comment:{" "}</label>
+              <label htmlFor = 'bmComment'> Board Comment:{' '}</label>
 
               <input
-                name="bmComment"
-                placeholder={"Board Member Comment"}
-                onChange={handleChange}
-                value={values.bmComment}
+                name = 'bmComment'
+                placeholder = {'Board Member Comment'}
+                onChange = {handleChange}
+                value = {values.bmComment}
               />
 
-              <ErrorMessage component="p" name="bmComment" />
+              <ErrorMessage component = 'p' name = 'bmComment' />
             </div>
           )}
 
           {!boardMember && (
             <div>
-              <label htmlFor="title">Title:{" "}</label>
+              <label htmlFor = 'title'>Title:{' '}</label>
 
               <input
-                placeholder={"issue title"}
-                onChange={handleChange}
-                value={values.title}
-                id="title"
-                name="title"
+                placeholder = {'issue title'}
+                onChange = {handleChange}
+                value = {values.title}
+                id = 'title'
+                name = 'title'
               />
 
               <ErrorMessage component="p" name="title" />
@@ -82,16 +82,16 @@ function SingleIssueForm(props) {
 
           {!boardMember && (
             <div>
-              <label htmlFor="description"> Description:{" "}</label>
+              <label htmlFor = 'description'> Description:{' '}</label>
 
               <input
-                name="description"
-                placeholder={"issue description"}
-                onChange={handleChange}
-                value={values.description}
+                name = 'description'
+                placeholder = {'issue description'}
+                onChange = {handleChange}
+                value = {values.description}
               />
 
-              <ErrorMessage component="p" name="description" />
+              <ErrorMessage component = 'p' name = 'description' />
             </div>
           )}
 
@@ -101,12 +101,12 @@ function SingleIssueForm(props) {
             }}>Delete</button>
         )}
 
-        <button type="button" onClick={() => props.Set_IssueType("clear")}>
+        <button type = 'button' onClick = {() => props.Set_IssueType('clear')}>
           Close</button>
 
-        {!boardMember &&props.issueType === "edit" && (
-          <button type="submit"
-            onClick={() => {
+        {!boardMember &&props.issueType === 'edit' && (
+          <button type = 'submit'
+            onClick = {() => {
               const issueInfo = {
                 id: id,
                 issue_title: title,
@@ -121,9 +121,9 @@ function SingleIssueForm(props) {
             }}>Submit</button>
         )}
 
-        {boardMember && props.issueType === "edit" && (
-          <button type="submit"
-            onClick={() => {
+        {boardMember && props.issueType === 'edit' && (
+          <button type ='submit'
+            onClick = {() => {
               const issueInfo = {
                 id: id,
                 status: status,
@@ -143,9 +143,9 @@ function SingleIssueForm(props) {
             }}>Submit </button>
         )}
 
-        {props.issueType === "createnew" && (
-          <button type="submit"
-            onClick={() => {
+        {props.issueType === 'createnew' && (
+          <button type = 'submit'
+            onClick = {() => {
               const issueInfo = {
                 id: id,
                 issue_title: title,
@@ -154,7 +154,8 @@ function SingleIssueForm(props) {
                 status: status,
                 school_id: 1 
               };
-              console.log("submit button", props.values);
+
+              console.log('submit button', props.values);
               props.saveIssue(issueInfo, props);
               props.Set_IssueType('clear')
             }}
@@ -173,10 +174,10 @@ function BMSelectStatus({  field, form, ...props} ){
               { ...field}
               {...props}
                 >
-                <option value="Needs Attention">Needs Attention</option>
-                <option value="Resolution In Progress">In Progress</option>
-                <option value="Resolved">Resolved</option>
-                <option value="Dismissed">Dismissed</option>
+                <option value = 'Needs Attention'>Needs Attention</option>
+                <option value = 'Resolution In Progress'>In Progress</option>
+                <option value = 'Resolved'>Resolved</option>
+                <option value = 'Dismissed'>Dismissed</option>
               </select>
     )
 }

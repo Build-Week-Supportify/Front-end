@@ -19,13 +19,13 @@ function App() {
         <Nav/>
         <section>
 
-        <div className = 'tle'>Supportify</div>
+        <div className = 'title'>Supportify</div>
 
-        <Route exact path="/home" render={() => <Redirect to="/" />} />
-        <Route exact path="/" render={() => <Redirect to="/login" />} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Register} />
-        <PrivateRoute exact path="/dashboard" component={Dashboard} />
+        <Route exact path = '/home' render={() => <Redirect to = '/' />} />
+        <Route exact path = '/' render={() => <Redirect to = '/login' />} />
+        <Route exact path = '/login' component={Login} />
+        <Route exact path = '/register' component={Register} />
+        <PrivateRoute exact path = '/dashboard' component={Dashboard} />
         
         </section>
       </header>
