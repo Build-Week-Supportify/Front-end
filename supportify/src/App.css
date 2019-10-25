@@ -20,3 +20,84 @@
 .App-link {
   color: #09d3ac;
 }
+
+ul{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+a{
+  margin-right: 20px;
+}
+
+#username{
+  margin-right: 5px;
+  color: black;
+  margin-bottom: 20px;
+}
+
+#password{
+  margin-right: 5px;
+  color: black;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+#first_name{
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+#last_name{
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+#email{
+  margin-bottom: 20px;
+}
+
+
+.logintitle {
+  margin-bottom: 15px;
+}
+
+.loginbtn {
+  color: black;
+}
+.reglog{
+  margin-top: 20%;
+}
+
+label{
+  margin-right: 20px;
+}
+
+.inputsec{
+  margin-bottom: 20px;
+}
+
+.schoollist {
+  border: 2px solid white;
+  margin-top: 20px;
+}
+
+.selectstatus{
+  border-bottom: white;
+  margin-top: 20px;
+}
+
+.issuebtn{
+  color: black;
+}
+
+.addschbtn{
+  color: black;
+  margin: 25px 0;
+}
+
+.selectstatus{
+  border: 2px solid white;
+}
