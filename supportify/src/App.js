@@ -19,7 +19,7 @@ function App() {
         <Nav/>
         <section>
 
-        <p>Here is Our App</p>
+        <div className = 'tle'>Supportify</div>
 
         <Route exact path="/home" render={() => <Redirect to="/" />} />
         <Route exact path="/" render={() => <Redirect to="/login" />} />

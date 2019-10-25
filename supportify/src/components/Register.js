@@ -41,31 +41,34 @@ class Register extends Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <h3>Sign Up</h3>
+                <div className='logintitle'>Sign Up</div>
+                <div className = 'regsinfo'>
 
                     <div>
-                        <label htmlFor = 'username'>Username</label>
+                        <label htmlFor = 'username' className = 'inputsec'>Username</label>
                         <input type = 'text' id = 'username' onChange={this.handleChange} />
                     </div>
 
                     <div>
-                        <label htmlFor = 'password'>Password</label>
+                        <label htmlFor = 'password' className = 'inputsec'>Password</label>
                         <input type = 'password' id = 'password' onChange={this.handleChange} />
                     </div>
 
                     <div>
-                        <label htmlFor = 'first_name'>First Name</label>
+                        <label htmlFor = 'first_name' className = 'inputsec'>First Name</label>
                         <input type = 'text' id = 'first_name' onChange={this.handleChange} />
                     </div>
 
                     <div>
-                        <label htmlFor = 'last_name'>Last Name</label>
+                        <label htmlFor = 'last_name' className = 'inputsec'>Last Name</label>
                         <input type = 'text' id = 'last_name' onChange={this.handleChange} />
                     </div>
 
                     <div>
-                        <label htmlFor = 'email'>Email</label>
+                        <label htmlFor = 'email' className = 'inputsec'>Email</label>
                         <input type = 'text' id = 'email' onChange={this.handleChange} />
+                    </div>
+
                     </div>
 
                     <div>
@@ -99,8 +102,8 @@ class Register extends Component {
                     </label>
                     </div>
 
-                    <div className = 'input-field'>
-                        <button>Submit</button>
+                    <div>
+                        <button className = 'subbtn'>Submit</button>
                     </div>
                 </form>
             </div>

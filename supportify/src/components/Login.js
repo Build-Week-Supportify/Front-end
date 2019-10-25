@@ -29,7 +29,7 @@ class Login extends Component {
         } else {
             return (
                 <form onSubmit={this.submitHandler}>
-                    <div>Login</div>
+                    <div className='logintitle'>Login</div>
 
                     <div>
                         
@@ -49,12 +49,12 @@ class Login extends Component {
                             onChange={this.changeHandler}
                         />
 
-                        <button>Login</button>
+                        <button className='loginbtn'>Login</button>
 
                         <div>
-                            <p>Create An Account </p>
+                            <h1 className='reglog'>Create An Account </h1>
                             <Link to= './register'>
-                                <button type = 'submit'>Register here!</button>
+                                <button type = 'submit' className='loginbtn'>Register here!</button>
                             </Link>
         </div>
                     </div>

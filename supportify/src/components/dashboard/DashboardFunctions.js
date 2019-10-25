@@ -24,7 +24,7 @@ function DashboardFunctions(props) {
         axios
         .get("https://bw-supportify.herokuapp.com/issues/")
         .then(res => {
-            console.log("get IssueList action",res.data);
+            console.log("issue list",res.data);
             setIssuesList(res.data);
         })
         .catch(err => {

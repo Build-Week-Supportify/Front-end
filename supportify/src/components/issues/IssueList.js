@@ -14,17 +14,9 @@ function IssueList(props) {
         <p>{props.school_name}</p>
 
         { !props.isBoardMember && 
-        <button onClick={ () =>  props.Set_IssueType('createnew') }>Add Issue Ticket</button> }
+        <button onClick={ () =>  props.Set_IssueType('createnew') }className = 'issuebtn'>Add Issue Ticket</button> }
         </>
     </div>
-
-    <ul>
-        <li>Date Created</li>
-        <li>Title</li>
-        <li>Status</li>
-        <li>View</li>
-        { !props.isBoardMember && <button>Delete</button>}
-    </ul>
 
     <div> 
         {props.issueData &&

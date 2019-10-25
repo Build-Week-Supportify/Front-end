@@ -24,7 +24,7 @@ function Dashboard(props) {
             .get('https://bw-supportify.herokuapp.com/issues/')
 
             .then(response => {
-                console.log("get IssueList action",response.data);
+                console.log("issue list",response.data);
                 setIssuesList(response.data);
             })
 

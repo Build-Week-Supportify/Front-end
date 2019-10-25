@@ -14,7 +14,7 @@ function Issue(props) {
   const setType = props.Set_IssueType; 
   const updateIssues = props.updateIssues;
 
-  let { first_name , last_name, school_name, isBoardMember,} = props;
+  let { first_name , last_name, schools, isBoardMember,} = props;
 
   let {id, status, issue_title, issue_description, date} = props.issue;
 
@@ -47,7 +47,7 @@ function Issue(props) {
 
         {!showForm && (
           <p>
-            Please select an issue from the list or create a new issue.
+            Select Issue or Add Issue
           </p>
         )}
       </div>
